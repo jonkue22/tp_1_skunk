@@ -14,7 +14,7 @@ public class Dice
 {
 	// Instance fields (variables) may be declared anywhere in class body
 	// Convention: put at top
-	//test
+	//test 123
 
 	private int lastRoll;
 	private Die die1;
