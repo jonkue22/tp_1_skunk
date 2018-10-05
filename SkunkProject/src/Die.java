@@ -13,7 +13,12 @@ public class Die
 	
 	public Die(int[] predictable_rolls)
 	{
-		predictable = true;
+		if(predictable_rolls == null)
+		{
+			predictable = false;
+			throw new RuntimeException("null initializing int[] array");
+		}
+		this.predictable = true;
 		this.rolls = predictable_rolls;
 		this.index_of_next_roll = 0;
 	}
