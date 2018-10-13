@@ -3,6 +3,9 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Categories.ExcludeCategory;
+
+import edu.princeton.cs.introcs.StdOut;
 
 public class DieTest
 {
@@ -11,8 +14,11 @@ public class DieTest
 	@Before
 	public void setUp() throws Exception
 	{
-		int[] init_values = new int[] { 3, 2, 1 };
+		int[] init_values = new int[]
+		{ 3, 2, 1 };
 		die = new Die(init_values);
+		StdOut.println("setUp() called");
+
 	}
 
 	@After
@@ -27,9 +33,9 @@ public class DieTest
 		int value = die.getLastRoll();
 
 		assertEquals("first value not 3", 3, value);
-		
+
 	}
-	
+
 	@Test
 	public void test_roll_2_of_predictable_die()
 	{
@@ -38,7 +44,7 @@ public class DieTest
 		die.roll();
 		assertEquals("second value not 2", 2, die.getLastRoll());
 	}
-	
+
 	@Test
 	public void test_roll_3_of_predictable_die()
 	{
@@ -47,7 +53,7 @@ public class DieTest
 		die.roll();
 		assertEquals("third value not 1", 1, die.getLastRoll());
 	}
-	
+
 	@Test
 	public void test_roll_4_of_predictable_die_with_3_rolls()
 	{
@@ -66,13 +72,30 @@ public class DieTest
 		die.roll();
 		die.roll();
 		die.roll();
-		assertEquals("fifth value not wrapping back to first value 2", 2, die.getLastRoll());
+		assertEquals("fourth value not wrapping back to first value 3", 2, die.getLastRoll());
 	}
 
-	@Test(expected=RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void test_null_initial_int_array()
 	{
-		Die die = new Die(null);
-		die.roll();
-	}	
+		Die die1 = new Die(null);
+		die1.roll();
+	}
+
+	@Test()
+	public void test_null_initial_int_array2()
+	{
+		try
+		{
+			Die die1 = new Die(null);
+			die1.roll();
+		}
+		catch (RuntimeException rexp)
+		{
+			return;
+		}
+
+		fail();
+	}
+
 }

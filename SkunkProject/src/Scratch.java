@@ -7,7 +7,13 @@ public class Scratch
 	{
 		// TODO Auto-generated method stub
 		
-		StdOut.print("hello");
+		StdOut.println("hello");
+		// same as: System.out.println("hello");
+		
+		StdOut.print("Enter your name: ");
+		String name = StdIn.readLine(); // use this for your input
+		StdOut.print("Welcome, "+name);
+
 
 	}
 
