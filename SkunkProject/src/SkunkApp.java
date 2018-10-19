@@ -20,7 +20,7 @@ public class SkunkApp implements Reporter
 
 			String response = StdIn.readLine();
 
-			if (!response.equals('n'))
+			if (response.equals("y"))
 			{
 				turn.rollAgain();
 				turn.scoreTurn();
