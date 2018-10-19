@@ -8,15 +8,15 @@ public class SkunkApp implements Reporter
 	{
 		StdOut.println("Welcome to 635 Skunk project!");
 
-		StdOut.println("Play one Turn for player1");
+		StdOut.println("Please enter name for player1 to begin:");
 
-		String player = "player1";
+		String player = StdIn.readLine();
 
 		Turn turn = new Turn();
 
 		while (true)
 		{
-			StdOut.print("Do you want to roll? n or y (ENTER=>y)");
+			StdOut.print(player + "," + " do you want to roll? Enter y or n");
 
 			String response = StdIn.readLine();
 
