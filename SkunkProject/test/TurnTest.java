@@ -21,8 +21,15 @@ public class TurnTest
 	public void turn_score_0_in_new_Turn()
 	{
 		Turn new_turn = new Turn();
-		// assertEquals("init_turn_score_not_0", 0, new_turn.getTurnScore());
+		assertEquals("init_turn_score_not_0", 0, new_turn.getTurnScore());
 
+	}
+	
+	@Test
+	public void last_roll_created_in_new_Turn() 
+	{
+		Turn new_turn = new Turn();
+		assertNotEquals("expected a null lastRoll object",null,new_turn.getLastRoll());
 	}
 
 //	@Test
