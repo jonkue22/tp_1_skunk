@@ -1,58 +1,67 @@
 import java.util.ArrayList;
 
-public class Turn
+import edu.princeton.cs.introcs.StdOut;
+
+public class Turn 
 {
 	private int turnScore;
 	private Roll lastRoll;
 	private ArrayList<Roll> rollSequence;
 	
-	public Turn()
+	public Turn() 
 	{
 		this.turnScore = 0;
 		this.lastRoll = null;
 		this.rollSequence = new ArrayList<>();
 	}
 	
-	public int getTurnScore() {
-		
+	public int getTurnScore() 
+	{
 		return this.turnScore;
 	}
-
-	public Roll getLastRoll()
+	
+	public Roll getLastRoll() 
 	{
 		return this.lastRoll;
 	}
-
-	public void rollAgain()
+	
+	public void rollAgain() 
 	{
 		this.lastRoll = new Roll();
-		rollSequence.add(this.lastRoll);
-		
+		this.rollSequence.add(this.lastRoll);
 	}
 	
-	public void scoreTurn()
+	public void scoreTurn() 
 	{
-		if (getLastRoll().isDoubleSkunk())
+		if (this.getLastRoll().isDoubleSkunk()) 
 		{
+			StdOut.println("You rolled a double skunk");
 			turnScore = 0;
 		}
-		else if (getLastRoll().isDeuceSkunk())
+		else if (this.getLastRoll().isDeuceSkunk()) 
 		{
+			StdOut.println("You rolled a deuce skunk");
 			turnScore = 0;
 		}
-		else if (getLastRoll().isSingleSkunk())
+		else if (this.getLastRoll().isSingleSkunk()) 
 		{
+			StdOut.println("You rolled a skunk");
 			turnScore = 0;
 		}
-		else
+		else 
 		{
 			turnScore += lastRoll.getDice().getLastRoll();
 		}
 	}
-
-	public boolean ends()
+	
+	public String getDiceVals() 
 	{
-		// TODO Auto-generated method stub
+		
+		return lastRoll.getDiceVals();
+	}
+
+	public boolean ends() 
+	{
 		return lastRoll.isDeuceSkunk() || lastRoll.isDoubleSkunk() || lastRoll.isSingleSkunk();
 	}
 }

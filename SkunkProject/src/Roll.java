@@ -1,4 +1,3 @@
-
 public class Roll
 {
 	private Dice dice;
@@ -12,6 +11,12 @@ public class Roll
 	public Dice getDice()
 	{
 		return this.dice;
+	}
+	
+	public String getDiceVals()
+	{
+		return "Die 1 " + this.dice.getDie1() + 
+				"\nDie 2 " + this.dice.getDie2();
 	}
 
 	public void setDice(Die die1, Die die2) // convenient for testing with
@@ -43,3 +48,4 @@ public class Roll
 	}
 
 }
+
