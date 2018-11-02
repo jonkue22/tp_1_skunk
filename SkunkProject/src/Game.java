@@ -90,7 +90,7 @@ public class Game
 	public boolean win()
 	{
 		for (int i = 0; i < players.length; i++)
-			if (players[i].getScore() >= 10)
+			if (players[i].getScore() >= 100)
 			{
 				this.winner = players[i];
 				return true;
@@ -108,7 +108,21 @@ public class Game
 		return this.round.ends();
 	}
 
+	public void seeRules() throws IOException
+	{
+		String Line;
+		Scanner fileScan;
 
+		fileScan = new Scanner(new File("Rules"));
+
+		while (fileScan.hasNext())
+		{
+			Line = fileScan.nextLine();
+			StdOut.println(Line);
+		}
+		fileScan.close();
+	}
+	
 	public static void main(String[] args) throws IOException
 	{
 		Game game = new Game();

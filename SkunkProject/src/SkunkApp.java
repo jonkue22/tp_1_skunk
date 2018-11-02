@@ -11,7 +11,17 @@ public class SkunkApp implements Reporter
 		Game game = new Game();
 
 		StdOut.println("Welcome to 635 Skunk project!");
-		StdOut.println("Please Enter number of players: ");
+		
+		StdOut.println("Would you like to view the rules to the game? y or n");
+
+		String viewRules = StdIn.readLine();
+
+		if (viewRules.equalsIgnoreCase("y"))
+		{
+			game.seeRules();
+		}
+		
+		StdOut.println("Please enter the number of players: ");
 		
 		int numPlayers = StdIn.readInt();
 		StdIn.readLine();
