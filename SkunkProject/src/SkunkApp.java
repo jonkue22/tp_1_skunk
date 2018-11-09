@@ -36,11 +36,11 @@ public class SkunkApp implements Reporter
 
 			while (true)
 			{
-				StdOut.println(player + ", Do you want to roll the dice? Enter yes or no?");
+				StdOut.println(player + ", Do you want to roll the dice? y or n?");
 
 				String response = StdIn.readLine();
 
-				if (!response.equalsIgnoreCase("no"))
+				if (!response.equalsIgnoreCase("n"))
 				{
 					game.getRound().rollAgain();
 					game.getRound().scoreTurn();
